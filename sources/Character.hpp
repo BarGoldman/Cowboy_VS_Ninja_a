@@ -2,13 +2,10 @@
 #define CH_H
 
 #include "Point.hpp"
-// #include "Ninja.hpp"
-// #include "Cowboy.hpp"
-// #include "OldNinja.hpp"
 #include <string>
 using namespace std;
 namespace ariel
-{
+{};
 
 
 class Character
@@ -23,12 +20,18 @@ public:
     ~Character();
 
     bool isAlive();
-    double distance(Character& player);
-    int hit();
+    double distance(Character* player);
+    void hit(int num);
     string getName();
     Point getLocation();
     void print();
+
+
+
+    //// add by me
+
+    int get_hitPoints();
 };
-}
+
 
 #endif

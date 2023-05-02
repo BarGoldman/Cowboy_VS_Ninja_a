@@ -23,6 +23,10 @@ public:
     bool hasboolets();
     void reload();
     string Print();
+
+
+    //// 
+    int get_numBalls();
 };
 
 #endif

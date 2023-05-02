@@ -4,6 +4,7 @@
         "typeinfo": "cpp",
         "new": "cpp",
         "ostream": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "iostream": "cpp"
     }
 }
