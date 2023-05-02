@@ -15,12 +15,16 @@ class Ninja : public Character
 {
 private:
     int _speed;
+
 public:
-    Ninja(string name, Point& location);
+    Ninja(string name, Point &location);
     ~Ninja();
 
-    void move(Character& enemy);
-    void slash(Character& enemy);
+    void move(Character &enemy);
+    void slash(Character &enemy);
+
+
+    /// 
+    int get_speed();
 };
 #endif
-

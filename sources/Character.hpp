@@ -20,7 +20,7 @@ public:
     ~Character();
 
     bool isAlive();
-    double distance(Character* player);
+    double distance(Character& player);
     void hit(int num);
     string getName();
     Point getLocation();

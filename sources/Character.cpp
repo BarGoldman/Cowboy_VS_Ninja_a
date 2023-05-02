@@ -17,9 +17,9 @@ bool Character::isAlive()
     return (_hitPoints > 0);
 }
 
-double Character::distance(Character* player)
+double Character::distance(Character& player)
 {
-    return _location.distance(player->_location);
+    return _location.distance(player._location);
 }
 
 void Character::hit(int num)

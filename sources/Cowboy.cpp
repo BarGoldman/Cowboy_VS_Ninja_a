@@ -27,6 +27,8 @@ void Cowboy::reload()
 {
     _numBalls = 6 ; 
 }
+
+
 string Cowboy::Print()
 {
 }

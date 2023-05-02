@@ -15,7 +15,6 @@ TEST_CASE("Point"){
     Point b(1.3,3.5);
     CHECK_EQ(a.distance(b) , b.distance(a));
 
-
     Point c(32.3,44);
     CHECK_EQ(a.distance(c) , 0);
 }
@@ -67,6 +66,6 @@ TEST_CASE("The OldNinja is not alive - after 15 shoot "){
     }
 
     CHECK(p2.get_hitPoints() == 0);
-    CHECK(p2.isAlive() == true);
+    CHECK(p2.isAlive() == false);
 }
 
