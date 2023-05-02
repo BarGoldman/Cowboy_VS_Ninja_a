@@ -19,7 +19,12 @@ TEST_CASE("Point")
     CHECK_EQ(a.distance(c), 0);
 }
 
-TEST_CASE("Character")
+TEST_CASE("Point - moveTowards")
+{
+    
+}
+
+TEST_CASE("Character - Simpel test")
 {
     Point a(32.3, 44);
     Point b(1.3, 3.5);
