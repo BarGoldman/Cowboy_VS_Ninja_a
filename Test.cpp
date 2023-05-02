@@ -69,3 +69,48 @@ TEST_CASE("The OldNinja is not alive - after 15 shoot "){
     CHECK(p2.isAlive() == false);
 }
 
+TEST_CASE("TEAM - A fighter can only be in group 1"){
+    Point a(1.2,3.8);
+    Point b(3,9);
+    Cowboy p1 =  Cowboy("Kil", a);
+    Team team1(p1);
+    Cowboy p2 =  Cowboy("Bil", b);
+    t.add(p2);
+
+    Cowboy tom =  Cowboy("Tom", a);
+    Team team2(tom);
+    CHECK_THROWS(team2.add(p2));
+}
+
+TEST_CASE("TEAM - A group of fighters has 10 participants")
+{
+    Point a(1.2,3.8);
+    Cowboy p1 = Cowboy("A" , Point(6,5));
+    Cowboy p2 = Cowboy("A" , Point(7,5));
+    Cowboy p3 = Cowboy("A" , Point(69,50));
+    Cowboy p4 = Cowboy("A" , Point(60,50));
+
+    OldNinja p5 =  OldNinja("sushi", Point(6213,5213));
+    OldNinja p6 =  OldNinja("sushi", Point(666,567));
+    OldNinja p7 =  OldNinja("sushi", Point(6313,5543));
+    OldNinja p8 =  OldNinja("sushi", Point(63,52));
+    OldNinja p9 =  OldNinja("sushi", Point(62,53));
+    OldNinja p10 =  OldNinja("sushi", Point(65,52));
+
+    OldNinja p11 =  OldNinja("sushi", Point(16,25));
+
+    Team team1(p1);
+    CHECK(team1.add(p2));
+    CHECK(team1.add(p3));
+    CHECK(team1.add(p4));
+    CHECK(team1.add(p5));
+    CHECK(team1.add(p6));
+    CHECK(team1.add(p7));
+    CHECK(team1.add(p8));
+    CHECK(team1.add(p9));
+    CHECK(team1.add(p10));
+
+    CHECK_THROWS(team1.add(p1));
+
+}
+
