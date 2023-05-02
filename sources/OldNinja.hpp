@@ -2,6 +2,7 @@
 #define ON_H
 
 #include "Ninja.hpp"
+#include "Character.hpp"
 
 namespace ariel
 {
@@ -13,15 +14,7 @@ private:
     /* data */
 public:
     OldNinja(string name, Point &location);
-    ~OldNinja
-();
+    ~OldNinja();
 };
 #endif
 
-// OldNinja::OldNinja(/* args */)
-// {
-// }
-
-// OldNinja::~OldNinja()
-// {
-// }

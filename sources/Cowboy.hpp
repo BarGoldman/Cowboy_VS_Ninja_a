@@ -2,33 +2,27 @@
 #define COWBOY_H
 
 #include "Character.hpp"
+#include "Ninja.hpp"
+#include "Cowboy.hpp"
+#include "OldNinja.hpp"
 #include <string>
 using namespace std;
-namespace ariel
+using namespace ariel;
+
+
+class Cowboy : public Character
 {
+private:
+    int _numBalls;
 
-    class Cowboy : public Character
-    {
-    private:
-        int _numBalls;
+public:
+    Cowboy(string name, Point &location);
+    ~Cowboy();
 
-    public:
-        Cowboy(string name, Point &location);
-        ~Cowboy();
-
-        void shoot(Character *enemy);
-        bool hasboolets();
-        void reload();
-    };
-
-}
+    void shoot(Character& enemy);
+    bool hasboolets();
+    void reload();
+    string Print();
+};
 
 #endif
-
-// Cowboy::Cowboy(/* args */)
-// {
-// }
-
-// Cowboy::~Cowboy()
-// {
-// }

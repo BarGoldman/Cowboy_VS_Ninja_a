@@ -2,6 +2,9 @@
 #define N_H
 
 #include "Character.hpp"
+#include "Ninja.hpp"
+#include "Cowboy.hpp"
+#include "OldNinja.hpp"
 using namespace std;
 
 namespace ariel
@@ -13,18 +16,11 @@ class Ninja : public Character
 private:
     int _speed;
 public:
-    Ninja(/* args */);
+    Ninja(string name, Point& location);
     ~Ninja();
 
-    void move(Character* enemy);
-    void slash(Character* enemy);
+    void move(Character& enemy);
+    void slash(Character& enemy);
 };
 #endif
 
-// Ninja::Ninja(/* args */)
-// {
-// }
-
-// Ninja::~Ninja()
-// {
-// }

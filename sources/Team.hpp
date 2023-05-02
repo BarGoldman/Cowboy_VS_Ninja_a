@@ -3,6 +3,13 @@
 
 
 #include "Character.hpp"
+#include "Cowboy.hpp"
+#include "Ninja.hpp"
+#include "OldNinja.hpp"
+#include "YoungNinja.hpp"
+#include "TrainedNinja.hpp"
+
+
 #include <vector>
 using namespace std;
 namespace ariel
@@ -15,11 +22,11 @@ private:
     Character& _leader;
     vector<Character> _chTeam;
 public:
-    Team(/* args */);
+    Team(Character& player);
     ~Team();
 
-    void add(Character* player);
-    void attack(Team t);
+    void add(Character& player);
+    void attack(Team* t);
     int stillAlive();
     void print();
 };

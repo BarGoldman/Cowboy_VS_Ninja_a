@@ -13,16 +13,13 @@ private:
     double _y;
 
 public:
-    Point(double x , double y);
+    Point(double x, double y);
     ~Point();
 
-
-    double distance(Point& p);
+    double distance(Point &p);
     void print();
 
-
-    Point moveTowards(Point& source , Point& target , double dis);
+    Point moveTowards(Point &source, Point &target, double dis);
 };
 
 #endif
-

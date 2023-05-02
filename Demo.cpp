@@ -13,42 +13,46 @@
 using namespace std;
 
 #include "sources/Team.hpp" //no need for other includes
+#include "sources/TrainedNinja.hpp"
 
 using namespace ariel;
 
-int main()
-{
-   Point a(32.3, 44), b(1.3, 3.5);
-   assert(a.distance(b) == b.distance(a));
-   Cowboy tom = new Cowboy("Tom", a);
-   OldNinja sushi = new OldNinja("sushi", b);
-   tom.shoot(sushi);
-   cout << tom->Print() << endl;
+int main() {
+    Point a(32.3,44),b(1.3,3.5);
+    assert(a.distance(b) == b.distance(a));
+    Cowboy tom =  Cowboy("Tom", a);
+    OldNinja sushi =  OldNinja("sushi", b);
 
-   sushi.move(tom);
-   sushi.slash(tom);
+    ///////////////////////bar 
+   //  Ninja bar = Ninja("bar" , b);
+   //  Cowboy tom1 =  Cowboy("Tom1", a);
 
-   Team a(tom);
-   a.add(new YoungNinja("Yogi", Point(64, 57)));
-   //  a.add(new YountNinja("Yogi", Point(64,57)));
+    ///////////////////////bar 
+      tom.shoot(sushi);
+    cout << tom.Print() <<endl;
 
-   // Team b(&tom); should throw tom is already in team a
+    sushi.move(tom);
+    sushi.slash(tom);
 
-   Team b(&sushi);
-   b.add(new TrainedNinja("Hikari", Point(12, 81)));
+    Team a1(tom);
+    a1.add( YoungNinja("Yogi", Point(64,57)));
 
-   while (a.stillAlive() > 0 && b.stillAlive() > 0)
-   {
-      a.attack(&b);
-      b.attack(&a);
-      a.print();
-      b.print();
-   }
+    // Team b(&tom); should throw tom is already in team a
 
-   if (a.stillAlive() > 0)
-      cout << "winner is a" << endl;
-   else
-      cout << "winner is b" << endl;
+     Team b2(sushi);
+     b2.add( TrainedNinja("Hikari", Point(12,81)));
 
-   return 0; // no memory issues. Team should free the memory of its members. both a and b teams are on the stack.
+
+     while(a1.stillAlive() > 0 && b2.stillAlive() > 0){
+        a1.attack(&b2);
+        b2.attack(&a1);
+        a1.print();
+        b2.print();
+     }
+
+     if (a1.stillAlive() > 0) cout << "winner is a" << endl;
+     else cout << "winner is b" << endl;
+
+     return 0; // no memory issues. Team should free the memory of its members. both a and b teams are on the stack. 
+
 }
