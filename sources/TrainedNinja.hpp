@@ -6,20 +6,12 @@ namespace ariel
 {
 };
 
-class TrainedNinja : Ninja
+class TrainedNinja : public Ninja
 {
-private:
-    /* data */
+
 public:
-    TrainedNinja(/* args */);
+    TrainedNinja(string name,Point& location);
     ~TrainedNinja();
 };
 #endif
 
-TrainedNinja::TrainedNinja(/* args */)
-{
-}
-
-TrainedNinja::~TrainedNinja()
-{
-}

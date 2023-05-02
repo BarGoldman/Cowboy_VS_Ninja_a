@@ -6,6 +6,7 @@ using namespace ariel;
 
 Cowboy::Cowboy(string name, Point &location) : Character(name, location, 110), _numBalls(6)
 {
+    _Type = 2;
 }
 
 Cowboy::~Cowboy()

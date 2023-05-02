@@ -1,6 +1,7 @@
 #ifndef YN_H
 #define YN_H
 #include "Ninja.hpp"
+#include "Point.hpp"
 #include <string>
 using namespace std;
 
@@ -9,22 +10,13 @@ namespace ariel
 {
 };
 
-class YoungNinja : Ninja
+class YoungNinja : public Ninja
 {
-private:
-    /* data */
 public:
-    YoungNinja(string name,const Point& location);
+    YoungNinja(string name,Point& location);
     ~YoungNinja();
 };
 
 #endif
 
-// YoungNinja::YoungNinja(/* args */)
-// {
-// }
-
-// YoungNinja::~YoungNinja()
-// {
-// }
 

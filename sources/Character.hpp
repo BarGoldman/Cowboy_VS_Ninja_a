@@ -15,6 +15,8 @@ protected:
     Point _location;
     int _hitPoints;
 
+    int _Type; // 1 - for Ninja  , 2 - for Cowboy
+
 public:
     Character(string name, Point& location, int hit);
     ~Character();

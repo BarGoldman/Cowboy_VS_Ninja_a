@@ -3,8 +3,9 @@
 
 using namespace ariel;
 
-Ninja::Ninja(string name, Point &location) : Character(name, location, 110)
+Ninja::Ninja(string name, Point &location,int hit ,int speed):Character(name, location, hit),_speed(speed)
 {
+
 }
 
 void Ninja::move(Character &enemy)

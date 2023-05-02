@@ -16,8 +16,9 @@ class Ninja : public Character
 private:
     int _speed;
 
+
 public:
-    Ninja(string name, Point &location);
+    Ninja(string name, Point &location,int hit ,int speed);
     ~Ninja();
 
     void move(Character &enemy);
