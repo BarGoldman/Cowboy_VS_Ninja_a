@@ -29,5 +29,9 @@ public:
     void attack(Team* t);
     int stillAlive();
     void print();
+
+
+
+    string get_leader();
 };
 #endif

@@ -25,3 +25,8 @@ int Team::stillAlive()
 void Team::print()
 {
 }
+
+
+string Team::get_leader(){
+    return _leader.getName();
+}

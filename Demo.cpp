@@ -28,7 +28,7 @@ int main() {
    //  Cowboy tom1 =  Cowboy("Tom1", a);
 
     ///////////////////////bar 
-      tom.shoot(sushi);
+    tom.shoot(sushi);
     cout << tom.Print() <<endl;
 
     sushi.move(tom);
