@@ -4,7 +4,6 @@
 #include "Character.hpp"
 #include <string>
 using namespace std;
-
 namespace ariel
 {
 
@@ -21,7 +20,9 @@ namespace ariel
         bool hasboolets();
         void reload();
     };
+
 }
+
 #endif
 
 // Cowboy::Cowboy(/* args */)

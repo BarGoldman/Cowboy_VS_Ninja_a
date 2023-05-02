@@ -20,6 +20,7 @@ public:
     double distance(Point& p);
     void print();
 
+
     Point moveTowards(Point& source , Point& target , double dis);
 };
 

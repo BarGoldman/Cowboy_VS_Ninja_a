@@ -10,7 +10,7 @@ namespace ariel
     class Character
     {
     protected:
-        Point &_location;
+        Point _location;
         int _hitPoints;
         string _name;
 
@@ -19,7 +19,7 @@ namespace ariel
         ~Character();
 
         bool isAlive();
-        double distance(Character &player);
+        double distance(Character* player);
         int hit();
         string getName();
         Point getLocation();
