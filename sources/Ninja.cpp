@@ -10,7 +10,7 @@ Ninja::Ninja(string name, Point &location,int hit ,int speed):Character(name, lo
 
 void Ninja::move(Character &enemy)
 {
-    // _location = Point::moveTowards(_location,enemy.getLocation(),_speed);
+    
 }
 void Ninja::slash(Character &enemy)
 {

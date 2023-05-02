@@ -46,6 +46,21 @@ TEST_CASE("Character - Simpel test")
     CHECK_EQ(tom.get_numBalls(), 6);
 }
 
+TEST_CASE("Character - distance")
+{
+    OldNinja p1 = OldNinja("A", Point(0, 5));
+    YoungNinja p2 = YoungNinja("B", Point(9, 5));
+    TrainedNinja p3 = TrainedNinja("C", Point(4, 5));
+    TrainedNinja p4 = TrainedNinja("C", Point(5, 5));
+
+
+    p1.move(p4);
+    p2.move(p4);
+    Point p = p1.getLocation();
+    Point t = p2.getLocation();
+    CHECK(p.distance(t)==1);
+}
+
 TEST_CASE("2 characters cannot stand in the same place")
 {
     Point a(32.3, 44);
@@ -98,12 +113,12 @@ TEST_CASE("TEAM - A group of fighters has 10 participants")
     Cowboy p3 = Cowboy("C", Point(69, 50));
     Cowboy p4 = Cowboy("D", Point(60, 50));
 
-    OldNinja p5 = OldNinja("E", Point(6213, 5213));
+    TrainedNinja p5 = TrainedNinja("E", Point(6213, 5213));
     OldNinja p6 = OldNinja("F", Point(666, 567));
-    OldNinja p7 = OldNinja("G", Point(6313, 5543));
-    OldNinja p8 = OldNinja("H", Point(63, 52));
+    YoungNinja p7 = YoungNinja("G", Point(6313, 5543));
+    TrainedNinja p8 = TrainedNinja("H", Point(63, 52));
     OldNinja p9 = OldNinja("I", Point(62, 53));
-    OldNinja p10 = OldNinja("J", Point(65, 52));
+    YoungNinja p10 = YoungNinja("J", Point(65, 52));
 
     OldNinja p11 = OldNinja("K", Point(16, 25));
 
@@ -131,4 +146,24 @@ TEST_CASE("TEAM - Leader")
     team2.add(p2);
     team2.add(p3);
     CHECK(team2.get_leader == "A");
+}
+
+
+TEST_CASE("Type of Ninja")
+{
+    OldNinja p1 = OldNinja("A", Point(0, 5));
+    YoungNinja p2 = YoungNinja("B", Point(8, 5));
+    TrainedNinja p3 = TrainedNinja("C", Point(4, 5));
+
+
+    Cowboy p4 = Cowboy("D", Point(60, 50));
+    CHECK(p1.get_speed() > p3.get_speed);
+
+
+    p1.move(p4);
+    p2.move(p4);
+    Point p = p1.getLocation();
+    Point t = p2.getLocation();
+    CHECK(p.distance(t)==0);
+
 }
