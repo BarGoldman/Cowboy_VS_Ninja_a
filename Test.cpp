@@ -33,6 +33,7 @@ TEST_CASE("Character - Simpel test")
     Point b(1.3, 3.5);
     Cowboy *tom = new Cowboy("Tom", a);
     OldNinja *lis = new OldNinja("Lis", b);
+    CHECK(tom->isAlive() == true);
     CHECK_EQ(lis->getName(), "Lis");
     CHECK_EQ(tom->getName(), "Tom");
 
@@ -42,11 +43,25 @@ TEST_CASE("Character - Simpel test")
         tom->shoot(lis);
         i++;
     }
-    CHECK(lis->get_hitPoints() < 110);
+    CHECK_EQ(lis->get_hitPoints(), 90);
+    CHECK_EQ(tom->get_hitPoints(), 110);
     CHECK_EQ(tom->get_numBalls(), 0);
+    CHECK_EQ(tom->hasboolets() , false);
 
     tom->reload();
     CHECK_EQ(tom->get_numBalls(), 6);
+    CHECK_EQ(tom->hasboolets() , true);
+}
+
+TEST_CASE("slash when the ninja is dead"){
+    OldNinja *p1 = new OldNinja("A", Point(0, 5));
+    Cowboy *tom = new Cowboy("Tom", Point(2,2));
+    while (p1->isAlive())
+    {
+        tom->shoot(p1);
+    }
+    p1->slash(tom);
+    CHECK(tom->get_hitPoints() == 110);
 }
 
 TEST_CASE("Character - distance")
@@ -105,7 +120,7 @@ TEST_CASE("TEAM - A fighter can only be in group 1")
     team1.add(p2);
 
     Cowboy *tom =new Cowboy("Tom", a);
-    Team team2(&tom);
+    Team team2(tom);
     CHECK_THROWS(team2.add(p2));
 }
 
@@ -124,62 +139,61 @@ TEST_CASE("TEAM - A player will register for the team only once")
 
 TEST_CASE("TEAM - A group of fighters has 10 participants")
 {
-    Cowboy p1 = Cowboy("A", Point(6, 5));
-    Cowboy p2 = Cowboy("B", Point(7, 5));
-    Cowboy p3 = Cowboy("C", Point(69, 50));
-    Cowboy p4 = Cowboy("D", Point(60, 50));
+    Cowboy *p1 =new Cowboy("A", Point(6, 5));
+    Cowboy *p2 =new Cowboy("B", Point(7, 5));
+    Cowboy *p3 = new Cowboy("C", Point(69, 50));
+    Cowboy *p4 = new Cowboy("D", Point(60, 50));
 
-    TrainedNinja p5 = TrainedNinja("E", Point(6213, 5213));
-    OldNinja p6 = OldNinja("F", Point(666, 567));
-    YoungNinja p7 = YoungNinja("G", Point(6313, 5543));
-    TrainedNinja p8 = TrainedNinja("H", Point(63, 52));
-    OldNinja p9 = OldNinja("I", Point(62, 53));
-    YoungNinja p10 = YoungNinja("J", Point(65, 52));
+    TrainedNinja *p5 =new TrainedNinja("E", Point(6213, 5213));
+    OldNinja *p6 = new OldNinja("F", Point(666, 567));
+    YoungNinja *p7 = new YoungNinja("G", Point(6313, 5543));
+    TrainedNinja *p8 = new TrainedNinja("H", Point(63, 52));
+    OldNinja *p9 = new OldNinja("I", Point(62, 53));
+    YoungNinja *p10 = new YoungNinja("J", Point(65, 52));
 
-    OldNinja p11 = OldNinja("K", Point(16, 25));
+    OldNinja *p11 = new OldNinja("K", Point(16, 25));
 
     Team team1(p1);
-    CHECK(team1.add(p2));
-    CHECK(team1.add(p3));
-    CHECK(team1.add(p4));
-    CHECK(team1.add(p5));
-    CHECK(team1.add(p6));
-    CHECK(team1.add(p7));
-    CHECK(team1.add(p8));
-    CHECK(team1.add(p9));
-    CHECK(team1.add(p10));
+    CHECK_NOTHROW(team1.add(p2));
+    CHECK_NOTHROW(team1.add(p3));
+    CHECK_NOTHROW(team1.add(p4));
+    CHECK_NOTHROW(team1.add(p5));
+    CHECK_NOTHROW(team1.add(p6));
+    CHECK_NOTHROW(team1.add(p7));
+    CHECK_NOTHROW(team1.add(p8));
+    CHECK_NOTHROW(team1.add(p9));
+    CHECK_NOTHROW(team1.add(p10));
 
-    CHECK_THROWS(team1.add(p1));
+    CHECK_THROWS(team1.add(p11));
 }
 
 TEST_CASE("TEAM - Leader")
 {
-    Cowboy p1 = Cowboy("A", Point(6, 5));
-    Cowboy p2 = Cowboy("B", Point(7, 5));
-    Cowboy p3 = Cowboy("C", Point(69, 50));
+    Cowboy *p1 =new Cowboy("A", Point(6, 5));
+    Cowboy *p2 =new Cowboy("B", Point(7, 5));
+    Cowboy *p3 =new Cowboy("C", Point(69, 50));
 
     Team team2(p1);
     team2.add(p2);
     team2.add(p3);
-    CHECK(team2.get_leader == "A");
+    CHECK(team2.get_leader() == "A");
 }
 
 
 TEST_CASE("Type of Ninja")
 {
-    OldNinja p1 = OldNinja("A", Point(0, 5));
-    YoungNinja p2 = YoungNinja("B", Point(8, 5));
-    TrainedNinja p3 = TrainedNinja("C", Point(4, 5));
+    OldNinja *p1 =new OldNinja("A", Point(0, 5));
+    YoungNinja *p2 = new YoungNinja("B", Point(8, 5));
+    TrainedNinja *p3 =new TrainedNinja("C", Point(4, 5));
 
 
-    Cowboy p4 = Cowboy("D", Point(60, 50));
-    CHECK(p1.get_speed() > p3.get_speed);
+    Cowboy *p4 =new Cowboy("D", Point(60, 50));
+    CHECK(p1->get_speed() > p3->get_speed());
 
-
-    p1.move(p4);
-    p2.move(p4);
-    Point p = p1.getLocation();
-    Point t = p2.getLocation();
+    p1->move(p4);
+    p2->move(p4);
+    Point p = p1->getLocation();
+    Point t = p2->getLocation();
     CHECK(p.distance(t)==0);
 
 }
