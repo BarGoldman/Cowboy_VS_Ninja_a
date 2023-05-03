@@ -19,11 +19,13 @@ namespace ariel
 class Team
 {
 private:
-    Character _leader;
+    Character* _leader;
     vector<Character> _chTeam;
 public:
-    Team(Character& player);
-    ~Team();
+    Team(Character* player);
+    ~Team(){
+        delete[] _leader;
+    }
 
     void add(Character* player);
     void attack(Team* t);

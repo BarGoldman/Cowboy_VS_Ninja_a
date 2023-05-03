@@ -16,10 +16,10 @@ private:
     int _numBalls;
 
 public:
-    Cowboy(string name, Point &location);
+    Cowboy(string name, Point location);
     ~Cowboy();
 
-    void shoot(Character& enemy);
+    void shoot(Character* enemy);
     bool hasboolets();
     void reload();
     string Print();

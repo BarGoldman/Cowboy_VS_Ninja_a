@@ -10,7 +10,7 @@ class TrainedNinja : public Ninja
 {
 
 public:
-    TrainedNinja(string name,Point& location);
+    TrainedNinja(string name,Point location);
     ~TrainedNinja();
 };
 #endif

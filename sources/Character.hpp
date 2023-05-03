@@ -18,11 +18,11 @@ protected:
     int _Type; // 1 - for Ninja  , 2 - for Cowboy
 
 public:
-    Character(string name, Point& location, int hit);
+    Character(string name, Point location, int hit);
     ~Character();
 
     bool isAlive();
-    double distance(Character& player);
+    double distance(Character* player);
     void hit(int num);
     string getName();
     Point getLocation();

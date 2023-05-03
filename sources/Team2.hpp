@@ -3,20 +3,14 @@
 
 #include "Team.hpp"
 
-class Team2 : Team
+class Team2 : public Team
 {
 private:
     /* data */
 public:
-    Team2(/* args */);
-    ~Team2();
+    Team2(Character* player):Team(player){}
+
+    void print();
 };
 #endif
 
-Team2::Team2(/* args */)
-{
-}
-
-Team2::~Team2()
-{
-}

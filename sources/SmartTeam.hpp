@@ -3,20 +3,15 @@
 
 #include "Team.hpp"
 
-class SmartTeam : Team
+class SmartTeam :public Team
 {
 private:
     /* data */
 public:
-    SmartTeam(/* args */);
+    SmartTeam(Character* player);
     ~SmartTeam();
+
+
+    void print();
 };
 #endif
-
-SmartTeam::SmartTeam(/* args */)
-{
-}
-
-SmartTeam::~SmartTeam()
-{
-}

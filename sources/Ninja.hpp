@@ -18,11 +18,11 @@ private:
 
 
 public:
-    Ninja(string name, Point &location,int hit ,int speed);
+    Ninja(string name, Point location,int hit ,int speed);
     ~Ninja();
 
-    void move(Character &enemy);
-    void slash(Character &enemy);
+    void move(Character* enemy);
+    void slash(Character* enemy);
 
 
     /// 

@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-Character::Character(string name, Point &location, int hit) : _name(name), _location(location), _hitPoints(hit)
+Character::Character(string name, Point location, int hit) : _name(name), _location(location), _hitPoints(hit)
 {
 }
 
@@ -17,9 +17,9 @@ bool Character::isAlive()
     return (_hitPoints > 0);
 }
 
-double Character::distance(Character& player)
+double Character::distance(Character* player)
 {
-    return _location.distance(player._location);
+    return _location.distance(player->_location);
 }
 
 void Character::hit(int num)
