@@ -22,9 +22,10 @@ private:
     Character* _leader;
     vector<Character> _chTeam;
 public:
+    Team();
     Team(Character* player);
     ~Team(){
-        delete[] _leader;
+        // delete[] _leader;
     }
 
     void add(Character* player);

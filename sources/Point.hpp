@@ -12,9 +12,9 @@ private:
     double _y;
 
 public:
-    Point(double x, double y);
+    Point(double x_cd, double y_cd);
 
-    double distance(Point &p);
+    double distance(Point &point2);
     void print();
 
     Point moveTowards(Point &source, Point &target, double dis);
