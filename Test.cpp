@@ -17,6 +17,9 @@ TEST_CASE("Point")
 
     Point c(32.3, 44);
     CHECK_EQ(a.distance(c), 0);
+
+    Point d(32.5, 44);
+    CHECK(a.distance(b) < d.distance(b));
 }
 
 TEST_CASE("Point - moveTowards")
@@ -28,43 +31,43 @@ TEST_CASE("Character - Simpel test")
 {
     Point a(32.3, 44);
     Point b(1.3, 3.5);
-    Cowboy tom = Cowboy("Tom", a);
-    OldNinja lis = OldNinja("Lis", b);
-    CHECK_EQ(lis.getName(), "Lis");
-    CHECK_EQ(tom.getName(), "Tom");
+    Cowboy *tom = new Cowboy("Tom", a);
+    OldNinja *lis = new OldNinja("Lis", b);
+    CHECK_EQ(lis->getName(), "Lis");
+    CHECK_EQ(tom->getName(), "Tom");
 
     int i = 0;
     while (i < 5)
     {
-        tom.shoot(lis);
+        tom->shoot(lis);
         i++;
     }
-    CHECK(lis.get_hitPoints() < 110);
-    CHECK_EQ(tom.get_numBalls(), 0);
+    CHECK(lis->get_hitPoints() < 110);
+    CHECK_EQ(tom->get_numBalls(), 0);
 
-    tom.reload();
-    CHECK_EQ(tom.get_numBalls(), 6);
+    tom->reload();
+    CHECK_EQ(tom->get_numBalls(), 6);
 }
 
 TEST_CASE("Character - distance")
 {
-    OldNinja p1 = OldNinja("A", Point(0, 5));
-    YoungNinja p2 = YoungNinja("B", Point(9, 5));
-    TrainedNinja p3 = TrainedNinja("C", Point(4, 5));
-    TrainedNinja p4 = TrainedNinja("C", Point(5, 5));
+    OldNinja *p1 = new OldNinja("A", Point(0, 5));
+    YoungNinja *p2 = new YoungNinja("B", Point(9, 5));
+    TrainedNinja *p3 = new TrainedNinja("C", Point(4, 5));
+    TrainedNinja *p4 = new TrainedNinja("C", Point(5, 5));
 
 
-    p1.move(p4);
-    p2.move(p4);
-    Point p = p1.getLocation();
-    Point t = p2.getLocation();
+    p1->move(p4);
+    p2->move(p4);
+    Point p = p1->getLocation();
+    Point t = p2->getLocation();
     CHECK(p.distance(t)==1);
 }
 
 TEST_CASE("2 characters cannot stand in the same place")
 {
     Point a(32.3, 44);
-    Cowboy tom = Cowboy("Tom", a);
+    Cowboy *tom = new Cowboy("Tom", a);
 
     Point c(32.3, 44);
     CHECK_THROWS(Cowboy("Tai", c));
@@ -74,36 +77,49 @@ TEST_CASE("The OldNinja is not alive - after 15 shoot ")
 {
     Point a(1.2, 3.8);
     Point b(3, 9);
-    Cowboy p1 = Cowboy("Kil", a);
-    OldNinja p2 = OldNinja("Bil", b);
+    Cowboy *p1 = new Cowboy("Kil", a);
+    OldNinja *p2 =new OldNinja("Bil", b);
 
     int j = 0;
     while (j < 15)
     {
-        p1.shoot(p2);
-        if (p1.get_numBalls() == 0)
+        p1->shoot(p2);
+        if (p1->get_numBalls() == 0)
         {
-            p1.reload();
+            p1->reload();
         }
         j++;
     }
 
-    CHECK(p2.get_hitPoints() == 0);
-    CHECK(p2.isAlive() == false);
+    CHECK(p2->get_hitPoints() == 0);
+    CHECK(p2->isAlive() == false);
 }
 
 TEST_CASE("TEAM - A fighter can only be in group 1")
 {
     Point a(1.2, 3.8);
     Point b(3, 9);
-    Cowboy p1 = Cowboy("Kil", a);
+    Cowboy *p1 =new Cowboy("Kil", a);
     Team team1(p1);
-    Cowboy p2 = Cowboy("Bil", b);
-    t.add(p2);
+    Cowboy *p2 =new Cowboy("Bil", b);
+    team1.add(p2);
 
-    Cowboy tom = Cowboy("Tom", a);
-    Team team2(tom);
+    Cowboy *tom =new Cowboy("Tom", a);
+    Team team2(&tom);
     CHECK_THROWS(team2.add(p2));
+}
+
+TEST_CASE("TEAM - A player will register for the team only once")
+{
+    Point a(1.2, 3.8);
+    Point b(3, 9);
+    Cowboy *p1 =new Cowboy("Kil", a);
+    Team team1(p1);
+    Cowboy *p2 =new Cowboy("Bil", b);
+    team1.add(p2);
+    Cowboy *tom =new Cowboy("Tom", a);
+    team1.add(tom);
+    CHECK_THROWS(team1.add(tom));
 }
 
 TEST_CASE("TEAM - A group of fighters has 10 participants")
