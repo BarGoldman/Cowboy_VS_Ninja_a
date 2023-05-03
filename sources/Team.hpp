@@ -6,7 +6,7 @@
 #include "Cowboy.hpp"
 #include "Ninja.hpp"
 #include "OldNinja.hpp"
-#include "YoungNinja.hpp"
+#include "YountNinja.hpp"
 #include "TrainedNinja.hpp"
 
 
@@ -28,7 +28,7 @@ public:
     }
 
     void add(Character* player);
-    void attack(Team* t);
+    void attack(Team* other_team);
     int stillAlive();
     void print();
 

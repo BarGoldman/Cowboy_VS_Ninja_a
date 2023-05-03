@@ -4,13 +4,10 @@
 #include <iostream>
 using namespace std;
 
-Character::Character(string name, Point location, int hit) : _name(name), _location(location), _hitPoints(hit)
+Character::Character(string name, Point location, int hit,int type) : _name(name), _location(location), _hitPoints(hit),_Type(type)
 {
 }
 
-Character::~Character()
-{
-}
 
 bool Character::isAlive()
 {
@@ -37,11 +34,12 @@ Point Character::getLocation()
     return _location;
 }
 
-void Character::print()
+string Character::print()
 {
-    if(isAlive){
-        cout << "Name: " << _name << "Num Of Hit Point: " << _hitPoints << "Location: " << endl;
-    }
+    // if(isAlive()){
+    //     cout << "Name: " << _name << "Num Of Hit Point: " << _hitPoints << "Location: " << endl;
+    // }
+    return "h";
     
 }
 

@@ -12,6 +12,6 @@ public:
     ~SmartTeam();
 
 
-    void print();
+    void print(){};
 };
 #endif

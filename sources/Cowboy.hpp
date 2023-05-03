@@ -17,7 +17,6 @@ private:
 
 public:
     Cowboy(string name, Point location);
-    ~Cowboy();
 
     void shoot(Character* enemy);
     bool hasboolets();

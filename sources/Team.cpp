@@ -5,9 +5,6 @@ Team::Team(Character* player) : _leader(player)
     add(player);
 }
 
-Team::~Team()
-{
-}
 
 void Team::add(Character* player)
 {
@@ -16,11 +13,12 @@ void Team::add(Character* player)
     }
     // _chTeam.pop_back(player);
 }
-void Team::attack(Team *t)
+void Team::attack(Team *other_team)
 {
 }
 int Team::stillAlive()
 {
+    return 0;
 }
 void Team::print()
 {

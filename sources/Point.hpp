@@ -1,7 +1,6 @@
 #ifndef POINT_H
 #define POINT_H
 
-using namespace std;
 namespace ariel
 {
 };
@@ -14,7 +13,6 @@ private:
 
 public:
     Point(double x, double y);
-    ~Point();
 
     double distance(Point &p);
     void print();

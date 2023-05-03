@@ -1,9 +1,9 @@
 
 #include "Ninja.hpp"
-#include "Character.hpp"
+#include "OldNinja.hpp"
 using namespace ariel;
 
-OldNinja::OldNinja(string name, Point location):Ninja(name,location,150,8)
+OldNinja::OldNinja(string name, Point location):Ninja(name,location,150,8,1)
 {
 
 }

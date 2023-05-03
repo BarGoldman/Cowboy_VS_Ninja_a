@@ -67,7 +67,7 @@ TEST_CASE("slash when the ninja is dead"){
 TEST_CASE("Character - distance")
 {
     OldNinja *p1 = new OldNinja("A", Point(0, 5));
-    YoungNinja *p2 = new YoungNinja("B", Point(9, 5));
+    YountNinja *p2 = new YountNinja("B", Point(9, 5));
     TrainedNinja *p3 = new TrainedNinja("C", Point(4, 5));
     TrainedNinja *p4 = new TrainedNinja("C", Point(5, 5));
 
@@ -146,10 +146,10 @@ TEST_CASE("TEAM - A group of fighters has 10 participants")
 
     TrainedNinja *p5 =new TrainedNinja("E", Point(6213, 5213));
     OldNinja *p6 = new OldNinja("F", Point(666, 567));
-    YoungNinja *p7 = new YoungNinja("G", Point(6313, 5543));
+    YountNinja *p7 = new YountNinja("G", Point(6313, 5543));
     TrainedNinja *p8 = new TrainedNinja("H", Point(63, 52));
     OldNinja *p9 = new OldNinja("I", Point(62, 53));
-    YoungNinja *p10 = new YoungNinja("J", Point(65, 52));
+    YountNinja *p10 = new YountNinja("J", Point(65, 52));
 
     OldNinja *p11 = new OldNinja("K", Point(16, 25));
 
@@ -183,7 +183,7 @@ TEST_CASE("TEAM - Leader")
 TEST_CASE("Type of Ninja")
 {
     OldNinja *p1 =new OldNinja("A", Point(0, 5));
-    YoungNinja *p2 = new YoungNinja("B", Point(8, 5));
+    YountNinja *p2 = new YountNinja("B", Point(8, 5));
     TrainedNinja *p3 =new TrainedNinja("C", Point(4, 5));
 
 
