@@ -22,7 +22,5 @@ void Point::print()
 
 Point Point::moveTowards(Point &source, Point &target, double dis)
 {
-    // double temp = source.distance(target);
     return Point(1,2);
-
 }

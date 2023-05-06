@@ -3,13 +3,15 @@
 
 #include "Team.hpp"
 
-class SmartTeam :public Team
+
+namespace ariel
 {
-private:
-    /* data */
+};
+
+class SmartTeam : public Team
+{
 public:
     SmartTeam(Character* player);
-    ~SmartTeam();
 
 
     void print(){};

@@ -10,7 +10,7 @@ namespace ariel
 
 class Character
 {
-protected:
+private:
     string _name;
     Point _location;
     int _hitPoints;
@@ -30,9 +30,12 @@ public:
 
 
 
+
+
     //// add by me
 
     int get_hitPoints();
+    void set_hitPoints(int num);
 };
 
 

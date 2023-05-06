@@ -4,9 +4,9 @@
 #include "Cowboy.hpp"
 using namespace ariel;
 
-Cowboy::Cowboy(string name, Point location) : Character(name, location, 110,1), _numBalls(6)
+Cowboy::Cowboy(string name, Point location) : Character(name, location, 110,2), _numBalls(6)
 {
-    _Type = 2;
+
 }
 
 void Cowboy::shoot(Character* enemy)
@@ -26,7 +26,7 @@ void Cowboy::reload()
 }
 
 
-string Cowboy::Print()
+string Cowboy::print()
 {
     return "hii";
 }

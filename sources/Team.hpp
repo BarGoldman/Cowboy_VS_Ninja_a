@@ -22,11 +22,8 @@ private:
     Character* _leader;
     vector<Character> _chTeam;
 public:
-    Team();
     Team(Character* player);
-    ~Team(){
-        // delete[] _leader;
-    }
+    virtual ~Team() = default;
 
     void add(Character* player);
     void attack(Team* other_team);
