@@ -19,16 +19,23 @@ namespace ariel
 class Team
 {
 private:
+    vector<Character* > _chTeam;
     Character* _leader;
-    vector<Character> _chTeam;
 public:
+    // Team(const Team& other){
+    //     this->_chTeam = other._chTeam;
+    // }
     Team(Character* player);
-    virtual ~Team() = default;
+    virtual ~Team(){
+        for(vector<Character* >::size_type i = 0; i< _chTeam.size() ; i++){
+            delete _chTeam[i];
+        }
+    };
 
     void add(Character* player);
     void attack(Team* other_team);
     int stillAlive();
-    void print();
+    virtual void print() const;
 
 
 

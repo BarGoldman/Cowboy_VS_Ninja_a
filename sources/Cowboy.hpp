@@ -21,6 +21,7 @@ public:
     void shoot(Character* enemy);
     bool hasboolets();
     void reload();
+
     string print();
 
 

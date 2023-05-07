@@ -14,6 +14,6 @@ public:
     SmartTeam(Character* player);
 
 
-    void print(){};
+    void print();
 };
 #endif

@@ -34,7 +34,7 @@ Point Character::getLocation()
     return _location;
 }
 
-string Character::print()
+string Character::print() const
 {
     // if(isAlive()){
     //     cout << "Name: " << _name << "Num Of Hit Point: " << _hitPoints << "Location: " << endl;
