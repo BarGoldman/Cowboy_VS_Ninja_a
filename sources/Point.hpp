@@ -12,15 +12,8 @@ private:
     double _y;
 
 public:
-    // Point(const Point& other){
-    //     this->_x = other._x;
-    //     this->_y = other._y;
-    // }
-    // Point(){
-    //     this->_x = 0;
-    //     this->_y = 0; 
-    //     }
     Point(double x_cd, double y_cd);
+    // ~Point() = default;
 
     double distance(Point &point2);
     void print();

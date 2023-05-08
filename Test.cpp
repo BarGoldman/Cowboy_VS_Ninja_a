@@ -22,9 +22,12 @@ TEST_CASE("Point")
     CHECK(a.distance(b) < d.distance(b));
 }
 
-TEST_CASE("Point - moveTowards")
+TEST_CASE("Point - moveTowards - You can't move with a negative size")
 {
-    
+    double move = -3;
+    Point a(32.3, 44);
+    Point b(1.3, 3.5);
+    CHECK_THROWS(a.moveTowards(a,b,move));
 }
 
 TEST_CASE("Character - Simpel test")
@@ -53,15 +56,29 @@ TEST_CASE("Character - Simpel test")
     CHECK_EQ(tom->hasboolets() , true);
 }
 
-TEST_CASE("slash when the ninja is dead"){
+TEST_CASE("shoot when the ninja is dead && ninja dead try slash cowboy "){
     OldNinja *p1 = new OldNinja("A", Point(0, 5));
     Cowboy *tom = new Cowboy("Tom", Point(2,2));
     while (p1->isAlive())
     {
         tom->shoot(p1);
+        if(tom->get_numBalls() == 0){
+            tom->reload();
+        }
     }
-    p1->slash(tom);
+    CHECK_THROWS(tom->shoot(p1));
+    CHECK_THROWS(p1->slash(tom));
     CHECK(tom->get_hitPoints() == 110);
+}
+TEST_CASE("slash cowboy until he dead && cowboy dead try to shoot"){
+    OldNinja *p1 = new OldNinja("A", Point(0, 5));
+    Cowboy *tom = new Cowboy("Tom", Point(2,2));
+    while (tom->isAlive())
+    {
+        p1->slash(tom);
+    }
+    CHECK_THROWS(tom->shoot(p1));
+    CHECK_THROWS(p1->slash(tom));
 }
 
 TEST_CASE("Character - distance")
@@ -77,6 +94,43 @@ TEST_CASE("Character - distance")
     Point p = p1->getLocation();
     Point t = p2->getLocation();
     CHECK(p.distance(t)==1);
+}
+
+TEST_CASE("cowboy dead cant do reload")
+{
+    OldNinja *p1 = new OldNinja("A", Point(0, 5));
+    Cowboy *tom = new Cowboy("Tom", Point(2,2));
+    while (tom->isAlive())
+    {
+        p1->slash(tom);
+    }
+    CHECK_THROWS(tom->reload());
+}
+
+TEST_CASE("cowboy try to shoot when his balls over")
+{
+    OldNinja *p1 = new OldNinja("A", Point(0, 5));
+    Cowboy *tom = new Cowboy("Tom", Point(2,2));
+    int i = 0;
+    while (i < 5)
+    {
+        tom->shoot(p1);
+        i++;
+    }
+    tom->shoot(p1);
+    CHECK(p1->get_hitPoints() == 90);
+}
+
+TEST_CASE("cowboy cant shoot him self")
+{
+    Cowboy *tom = new Cowboy("Tom", Point(2,2));
+    CHECK_THROWS(tom->shoot(tom));
+}
+
+TEST_CASE("ninja cant slash him self")
+{
+    OldNinja *p1 = new OldNinja("A", Point(0, 5));
+    CHECK_THROWS(p1->slash(p1));
 }
 
 TEST_CASE("2 characters cannot stand in the same place")

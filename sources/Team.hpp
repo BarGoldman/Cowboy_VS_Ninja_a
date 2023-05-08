@@ -26,11 +26,12 @@ public:
     //     this->_chTeam = other._chTeam;
     // }
     Team(Character* player);
-    virtual ~Team(){
-        for(vector<Character* >::size_type i = 0; i< _chTeam.size() ; i++){
-            delete _chTeam[i];
-        }
-    };
+    virtual ~Team(){}
+    // virtual ~Team(){
+    //     for(vector<Character* >::size_type i = 0; i< _chTeam.size() ; i++){
+    //         delete _chTeam[i];
+    //     }
+    // };
 
     void add(Character* player);
     void attack(Team* other_team);
