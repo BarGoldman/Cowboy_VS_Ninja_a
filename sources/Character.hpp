@@ -24,7 +24,7 @@ public:
     //     this->_location = other._location;
     // }
     Character(string name, Point location, int hit, int type);
-    virtual ~Character(){}
+    virtual ~Character() = default;
 
     bool isAlive();
     double distance(Character *player);
