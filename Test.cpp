@@ -71,12 +71,14 @@ TEST_CASE("shoot when the ninja is dead && ninja dead try slash cowboy "){
     CHECK(tom->get_hitPoints() == 110);
 }
 TEST_CASE("slash cowboy until he dead && cowboy dead try to shoot"){
+    cout << "temp1 " << endl;
     OldNinja *p1 = new OldNinja("A", Point(0.2, 5));
     Cowboy *tom = new Cowboy("Tom", Point(1,5));
     while (tom->isAlive())
     {
         p1->slash(tom);
     }
+    cout << "temp2 " << endl;
     CHECK_THROWS(tom->shoot(p1));
     CHECK_THROWS(p1->slash(tom));
 }

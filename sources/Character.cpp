@@ -54,8 +54,3 @@ int Character::get_hitPoints()
 {
     return _hitPoints;
 }
-
-void Character::set_hitPoints(int num)
-{
-    _hitPoints = _hitPoints - num;
-}

@@ -36,7 +36,6 @@ public:
     //// add by me
 
     int get_hitPoints();
-    void set_hitPoints(int num);
 };
 
 #endif

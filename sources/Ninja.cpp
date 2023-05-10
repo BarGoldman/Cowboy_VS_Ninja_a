@@ -15,7 +15,7 @@ void Ninja::move(Character* enemy)
 void Ninja::slash(Character* enemy)
 {
     if(this->isAlive() && this->distance(enemy) < 1){
-        set_hitPoints(13);
+        enemy->hit(13);
     }
 
 }
