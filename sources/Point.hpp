@@ -13,7 +13,6 @@ private:
 
 public:
     Point(double x_cd, double y_cd);
-    // ~Point() = default;
 
     double distance(Point &point2);
     void print();

@@ -40,10 +40,16 @@ Point Character::getLocation()
     return _location;
 }
 
-string Character::print() const
+string Character::print()
 {
-    // if(isAlive()){
-    //     cout << "Name: " << _name << "Num Of Hit Point: " << _hitPoints << "Location: " << endl;
+    // if(isAlive() == true){
+    //     cout << "Name: " << _name << "Num Of Hit Point: " << _hitPoints << "Location: " << _location ;
+    //     if(_type == 1){
+    //         cout<< "type: N" << endl; 
+    //     }
+    //     else if(_type == 2){
+    //         cout<< "type: C" << endl; 
+    //     }
     // }
     return "h";
 }

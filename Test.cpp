@@ -9,7 +9,7 @@ using namespace std;
 
 using namespace ariel;
 
-TEST_CASE("Point")
+TEST_CASE("Point - simpel test")
 {
     Point a(32.3, 44);
     Point b(1.3, 3.5);
@@ -20,6 +20,11 @@ TEST_CASE("Point")
 
     Point d(32.5, 44);
     CHECK(a.distance(b) < d.distance(b));
+}
+
+TEST_CASE("creating a negative point")
+{
+    CHECK(Point(-2.555 , -6.84));
 }
 
 TEST_CASE("Point - moveTowards - You can't move with a negative size")
@@ -37,11 +42,13 @@ TEST_CASE("Character - Simpel test")
     Cowboy *tom = new Cowboy("Tom", a);
     OldNinja *lis = new OldNinja("Lis", b);
     CHECK(tom->isAlive() == true);
+    CHECK(lis->isAlive() == true);
     CHECK_EQ(lis->getName(), "Lis");
     CHECK_EQ(tom->getName(), "Tom");
-
+    CHECK_EQ(lis->get_hitPoints(), 150);
+    
     int i = 0;
-    while (i < 5)
+    while (i < 6)
     {
         tom->shoot(lis);
         i++;

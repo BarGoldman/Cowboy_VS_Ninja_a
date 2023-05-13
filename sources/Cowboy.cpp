@@ -11,7 +11,7 @@ Cowboy::Cowboy(string name, Point location) : Character(name, location, 110,2), 
 
 void Cowboy::shoot(Character* enemy)
 {
-    if(enemy->isAlive() && _numBalls > 0 ){
+    if(isAlive() && _numBalls > 0 ){
         enemy->hit(10);
         _numBalls = _numBalls - 1;
     }
@@ -26,10 +26,10 @@ void Cowboy::reload()
 }
 
 
-string Cowboy::print()
-{
-    return "hii";
-}
+// string Cowboy::print()
+// {
+//     return "hii";
+// }
 
 
 
