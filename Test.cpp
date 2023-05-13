@@ -24,7 +24,7 @@ TEST_CASE("Point - simpel test")
 
 TEST_CASE("creating a negative point")
 {
-    CHECK(Point(-2.555 , -6.84));
+    CHECK_NOTHROW(Point(-2.555 , -6.84));
 }
 
 TEST_CASE("Point - moveTowards - You can't move with a negative size")

@@ -24,7 +24,7 @@ private:
 public:
     Team(Character* player);
 
-    ~Team();
+    // ~Team();
 
     void add(Character* player);
     virtual void attack(Team* other_team);

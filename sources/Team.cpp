@@ -19,14 +19,14 @@ void Team::attack(Team *other_team)
 int Team::stillAlive()
 {
     int ans = 0;
-    size_t i = 0;
-    while (i < _chTeam.size())
-    {
-        if(_chTeam.at(i)->isAlive()){
-            ans++;
-        }
-        i++;
-    }
+    // size_t i = 0;
+    // while (i < _chTeam.size())
+    // {
+    //     if(_chTeam.at(i)->isAlive()){
+    //         ans++;
+    //     }
+    //     i++;
+    // }
     return ans;
 }
 void Team::print() const
@@ -38,5 +38,5 @@ string Team::get_leader()
     return _leader->getName();
 }
 
-Team::~Team(){}
+// Team::~Team(){}
 
