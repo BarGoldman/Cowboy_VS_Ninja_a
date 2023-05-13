@@ -4,7 +4,10 @@
 #include "Character.hpp"
 #include <string>
 using namespace std;
-using namespace ariel;
+
+namespace ariel
+{
+};
 
 class Cowboy : public Character
 {

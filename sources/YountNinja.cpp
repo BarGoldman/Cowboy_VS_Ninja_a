@@ -5,7 +5,7 @@
 
 using namespace std;
 
-YountNinja::YountNinja(string name,Point location):Ninja(name,location,100 , 14,1)
+YountNinja::YountNinja(string name,Point location):Ninja(name,location,100 , 14)
 {
 
 }

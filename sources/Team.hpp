@@ -22,11 +22,8 @@ private:
     vector<Character* > _chTeam;
     Character* _leader;
 public:
-    // Team(const Team& other){
-    //     this->_chTeam = other._chTeam;
-    // }
     Team(Character* player);
-    // virtual ~Team(){}
+
     virtual ~Team(){
         for(vector<Character* >::size_type i = 0; i< _chTeam.size() ; i++){
             if(_chTeam[i] != NULL){
@@ -36,7 +33,7 @@ public:
     };
 
     void add(Character* player);
-    void attack(Team* other_team);
+    virtual void attack(Team* other_team);
     int stillAlive();
     virtual void print() const;
 

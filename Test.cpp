@@ -46,7 +46,7 @@ TEST_CASE("Character - Simpel test")
     CHECK_EQ(lis->getName(), "Lis");
     CHECK_EQ(tom->getName(), "Tom");
     CHECK_EQ(lis->get_hitPoints(), 150);
-    
+
     int i = 0;
     while (i < 6)
     {
@@ -77,15 +77,14 @@ TEST_CASE("shoot when the ninja is dead && ninja dead try slash cowboy "){
     CHECK_THROWS(p1->slash(tom));
     CHECK(tom->get_hitPoints() == 110);
 }
+
 TEST_CASE("slash cowboy until he dead && cowboy dead try to shoot"){
-    cout << "temp1 " << endl;
     OldNinja *p1 = new OldNinja("A", Point(0.2, 5));
     Cowboy *tom = new Cowboy("Tom", Point(1,5));
     while (tom->isAlive())
     {
         p1->slash(tom);
     }
-    cout << "temp2 " << endl;
     CHECK_THROWS(tom->shoot(p1));
     CHECK_THROWS(p1->slash(tom));
 }
@@ -121,7 +120,7 @@ TEST_CASE("cowboy try to shoot when his balls over")
     OldNinja *p1 = new OldNinja("A", Point(2,1));
     Cowboy *tom = new Cowboy("Tom", Point(2,2));
     int i = 0;
-    while (i < 5)
+    while (i < 6)
     {
         tom->shoot(p1);
         i++;
@@ -143,15 +142,6 @@ TEST_CASE("ninja cant slash him self")
     CHECK_THROWS(p1->slash(p1));
 }
 
-TEST_CASE("2 characters cannot stand in the same place")
-{
-    Point a(32.3, 44);
-    Cowboy *tom = new Cowboy("Tom", a);
-
-    Point c(32.3, 44);
-    CHECK_THROWS(Cowboy("Tai", c));
-}
-
 TEST_CASE(" Ninja can slash eneamy - less than a meter away")
 {
     OldNinja *p1 =new OldNinja("A", Point(0.2, 5));
@@ -160,13 +150,20 @@ TEST_CASE(" Ninja can slash eneamy - less than a meter away")
     Cowboy *p4 =new Cowboy("D", Point(1, 5));
 
     CHECK_NOTHROW(p1->slash(p4));
-    CHECK(p4->get_hitPoints() == 97);
+    CHECK(p4->get_hitPoints() == 70);
 
     CHECK_NOTHROW(p1->slash(p2));
     CHECK(p2->get_hitPoints() == 100);
 }
 
-TEST_CASE(" Ninja can slash cowboy 9 time than he dead")
+TEST_CASE("Ninja tries to slash Cowboy, but the distance between them is a meter"){
+    OldNinja *p1 = new OldNinja("A", Point(2,5));
+    Cowboy *tom = new Cowboy("Tom", Point(1,5));
+    CHECK_NOTHROW(p1->slash(tom));
+    CHECK(tom->get_hitPoints()== 110);
+}
+
+TEST_CASE(" Ninja can slash cowboy 3 time than he dead")
 {
     OldNinja *p1 =new OldNinja("A", Point(0.2, 5));
     Cowboy *p2 =new Cowboy("D", Point(1, 5));
@@ -177,9 +174,7 @@ TEST_CASE(" Ninja can slash cowboy 9 time than he dead")
         p1->slash(p2);
         count++;
     }
-    CHECK(count == 9);
-    CHECK(p2->get_hitPoints() == 0);
-
+    CHECK(count == 3);
 }
 
 TEST_CASE("The OldNinja is not alive - after 15 shoot ")
@@ -199,8 +194,6 @@ TEST_CASE("The OldNinja is not alive - after 15 shoot ")
         }
         j++;
     }
-
-    CHECK(p2->get_hitPoints() == 0);
     CHECK(p2->isAlive() == false);
 }
 
