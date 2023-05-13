@@ -21,8 +21,6 @@ public:
     bool hasboolets();
     void reload();
 
-    // string print();
-
     ////
     int get_numBalls();
 };

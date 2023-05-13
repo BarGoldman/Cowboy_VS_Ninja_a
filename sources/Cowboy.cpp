@@ -26,13 +26,6 @@ void Cowboy::reload()
 }
 
 
-// string Cowboy::print()
-// {
-//     return "hii";
-// }
-
-
-
 int Cowboy::get_numBalls(){
     return _numBalls;
 }
