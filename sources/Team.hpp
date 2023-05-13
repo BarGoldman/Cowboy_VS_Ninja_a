@@ -24,13 +24,7 @@ private:
 public:
     Team(Character* player);
 
-    virtual ~Team(){
-        for(vector<Character* >::size_type i = 0; i< _chTeam.size() ; i++){
-            if(_chTeam[i] != NULL){
-                delete _chTeam[i];
-            }
-        }
-    };
+    ~Team();
 
     void add(Character* player);
     virtual void attack(Team* other_team);

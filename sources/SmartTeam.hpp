@@ -15,5 +15,6 @@ public:
 
 
     void print();
+    void attack(Team* other_team) override;
 };
 #endif

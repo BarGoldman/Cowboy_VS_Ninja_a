@@ -3,14 +3,18 @@
 
 #include "Team.hpp"
 
+namespace ariel
+{
+};
+
 class Team2 : public Team
 {
-private:
-    /* data */
 public:
     Team2(Character* player):Team(player){}
 
     void print();
+
+    void attack(Team* other_team) override;
 };
 #endif
 

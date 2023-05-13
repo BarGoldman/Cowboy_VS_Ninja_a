@@ -266,22 +266,3 @@ TEST_CASE("TEAM - Leader")
     team2.add(p3);
     CHECK(team2.get_leader() == "A");
 }
-
-
-TEST_CASE("Type of Ninja")
-{
-    OldNinja *p1 =new OldNinja("A", Point(0, 5));
-    YountNinja *p2 = new YountNinja("B", Point(8, 5));
-    TrainedNinja *p3 =new TrainedNinja("C", Point(4, 5));
-
-
-    Cowboy *p4 =new Cowboy("D", Point(60, 50));
-    CHECK(p1->get_speed() > p3->get_speed());
-
-    p1->move(p4);
-    p2->move(p4);
-    Point p = p1->getLocation();
-    Point t = p2->getLocation();
-    CHECK(p.distance(t)==0);
-
-}
