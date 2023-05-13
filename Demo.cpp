@@ -31,10 +31,11 @@ int main() {
     Team team_A(tom); 
     team_A.add(new YountNinja("Yogi", Point(64,57)));
 
-   //  Team b(tom); should throw tom is already in team a
+    // Team b(tom); should throw tom is already in team a
 
      Team team_B(sushi);
      team_B.add(new TrainedNinja("Hikari", Point(12,81)));
+
 
      while(team_A.stillAlive() > 0 && team_B.stillAlive() > 0){
         team_A.attack(&team_B);
@@ -42,7 +43,6 @@ int main() {
         team_A.print();
         team_B.print();
      }
-     cout<<"hiii"<<endl;
 
      if (team_A.stillAlive() > 0) cout << "winner is team_A" << endl;
      else cout << "winner is team_B" << endl;
