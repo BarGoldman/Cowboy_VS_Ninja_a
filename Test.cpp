@@ -92,7 +92,7 @@ TEST_CASE("slash cowboy until he dead && cowboy dead try to shoot"){
 TEST_CASE("Character - distance")
 {
     OldNinja *p1 = new OldNinja("A", Point(0, 5));
-    YountNinja *p2 = new YountNinja("B", Point(9, 5));
+    YoungNinja *p2 = new YoungNinja("B", Point(9, 5));
     TrainedNinja *p3 = new TrainedNinja("C", Point(4, 5));
     TrainedNinja *p4 = new TrainedNinja("C", Point(5, 5));
 
@@ -145,7 +145,7 @@ TEST_CASE("ninja cant slash him self")
 TEST_CASE(" Ninja can slash eneamy - less than a meter away")
 {
     OldNinja *p1 =new OldNinja("A", Point(0.2, 5));
-    YountNinja *p2 = new YountNinja("B", Point(10, 5));
+    YoungNinja *p2 = new YoungNinja("B", Point(10, 5));
 
     Cowboy *p4 =new Cowboy("D", Point(1, 5));
 
@@ -234,10 +234,10 @@ TEST_CASE("TEAM - A group of fighters has 10 participants")
 
     TrainedNinja *p5 =new TrainedNinja("E", Point(6213, 5213));
     OldNinja *p6 = new OldNinja("F", Point(666, 567));
-    YountNinja *p7 = new YountNinja("G", Point(6313, 5543));
+    YoungNinja *p7 = new YoungNinja("G", Point(6313, 5543));
     TrainedNinja *p8 = new TrainedNinja("H", Point(63, 52));
     OldNinja *p9 = new OldNinja("I", Point(62, 53));
-    YountNinja *p10 = new YountNinja("J", Point(65, 52));
+    YoungNinja *p10 = new YoungNinja("J", Point(65, 52));
 
     OldNinja *p11 = new OldNinja("K", Point(16, 25));
 

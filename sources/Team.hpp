@@ -6,7 +6,7 @@
 #include "Cowboy.hpp"
 #include "Ninja.hpp"
 #include "OldNinja.hpp"
-#include "YountNinja.hpp"
+#include "YoungNinja.hpp"
 #include "TrainedNinja.hpp"
 
 

@@ -9,10 +9,10 @@ namespace ariel
 {
 };
 
-class YountNinja: public Ninja
+class YoungNinja: public Ninja
 {
 public:
-    YountNinja(string name,Point location);
+    YoungNinja(string name,Point location);
 };
 
 #endif
