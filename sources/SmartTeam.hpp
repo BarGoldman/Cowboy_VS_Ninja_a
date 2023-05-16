@@ -14,6 +14,6 @@ public:
     SmartTeam(Character* player);
 
     void print();
-    void attack(Team* other_team) override;
+    void attack(Team* other_team);
 };
 #endif

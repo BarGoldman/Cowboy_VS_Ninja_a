@@ -27,9 +27,9 @@ public:
     // ~Team();
 
     void add(Character* player);
-    virtual void attack(Team* other_team);
+    void attack(Team* other_team);
     int stillAlive();
-    virtual void print() const;
+    void print() const;
 
 
 
